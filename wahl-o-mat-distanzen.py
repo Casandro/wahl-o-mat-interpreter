@@ -105,27 +105,37 @@ for p in parteien:
 
 
 if len(sys.argv)>2:
+    filter_parteien=False
+    if len(sys.argv)>5:
+        filter_parteien=True
+
     # Graphen mit Zusammenhängen als dotviz Graph generieren
     G = nx.Graph()
     for pa in parteien:
         partei_a=parteien[pa]
+        if filter_parteien and not (partei_a.ganzkurz in sys.argv):
+            continue
         for pb in parteien:
             if pa==pb:
                 continue
             partei_b=parteien[pb]
+            if filter_parteien and not (partei_b.ganzkurz in sys.argv):
+                continue
             vergleich=partei_a.vergleich(partei_b)
             penwidth=0
             label=""
             rel_unterschiede=vergleich*0.5/anzahl_thesen;
-            if rel_unterschiede<0.4: 
+            if rel_unterschiede<0.5: 
                 penwidth=1
                 label="%2.0f"%(vergleich*0.5/anzahl_thesen*100)+"%"
-            if rel_unterschiede<0.25:
+            if rel_unterschiede<0.30:
                 penwidth=2
-            if rel_unterschiede<0.125:
+            if rel_unterschiede<0.20:
+                penwidth=3
+            if rel_unterschiede<0.10:
                 penwidth=4
-            if rel_unterschiede<0.0625:
-                penwidth=8
+            if rel_unterschiede<0.05:
+                penwidth=5
 
             G.add_edge(parteien[pa].kurz, parteien[pb].kurz,weight=0.5, len=vergleich*0.2, penwidth=penwidth, label=label)
 

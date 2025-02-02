@@ -93,3 +93,10 @@ Legende:
   W202: Partei WIR2020
   Volt: Volt Deutschland
 </pre>
+
+
+# Graphen für graphviz/neato
+
+Mit einem 2. Parameter kann man eine dot-Datei für [neato](https://graphviz.org/docs/layouts/neato/) generieren. Leider sind die Ergebnisse relativ unbrauchbar, wenn man _alle_ Parteien gleichzeitig betrachtet. Deshalb kann man mit weiteren Parametern die Parteien auswählen. Dazu gibt man die Kurzcodes (so wie in der Tabelle) als Parameter an.
+
+Eine typische Kommandozeile könnte zum Beispiel: './wahl-o-mat-distanzen.py ../btw_2021.csv /tmp/wurst.dot GRÜN CDU AfD SPD FDP LINK && neato -Tpdf -Gepsilon=.001 -Gstart=rand  /tmp/wurst.dot >  /tmp/wurst.pdf && atril /tmp/wurst.pdf ` 
