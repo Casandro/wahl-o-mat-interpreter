@@ -70,21 +70,25 @@ for pb in parteien:
     print("%4s "%(parteien[pb].ganzkurz), end="")
 print("")
 for pa in parteien:
+    partei_a=parteien[pa]
     print("%4s "%(parteien[pa].ganzkurz), end="")
     minimum=999
     maximum=0
     for pb in parteien:
-        if pa!=pb:
-            vergleich=parteien[pa].vergleich(parteien[pb])
-            if vergleich<minimum:
-                minimum=vergleich
-            if vergleich>maximum:
-                maximum=vergleich
+        if (pa==pb):
+            continue
+        partei_b=parteien[pb]
+        vergleich=partei_a.vergleich(partei_b)
+        if vergleich<minimum:
+            minimum=vergleich
+        if vergleich>maximum:
+            maximum=vergleich
     for pb in parteien:
         if (pa==pb):
             print("  -- ", end="")
             continue
-        vergleich=parteien[pa].vergleich(parteien[pb])
+        partei_b=parteien[pb]
+        vergleich=partei_a.vergleich(partei_b)
         if vergleich==minimum: # Die kleinsten Unterschiede werden grün eingefärbt
             print("\033[1;32m",end="")
         if vergleich==maximum: # Die kleinsten Unterschiede werden rot eingefärbt
@@ -104,23 +108,26 @@ if len(sys.argv)>2:
     # Graphen mit Zusammenhängen als dotviz Graph generieren
     G = nx.Graph()
     for pa in parteien:
+        partei_a=parteien[pa]
         for pb in parteien:
-            if pa<pb:
-                vergleich=parteien[pa].vergleich(parteien[pb])
-                penwidth=0
-                label=""
-                rel_unterschiede=vergleich*0.5/anzahl_thesen;
-                if rel_unterschiede<0.5: # Parteien mit mehr als 50% Übereinstimmung bekommen eine Linie
-                    penwidth=1
-                    label=str(vergleich)
-                if rel_unterschiede<0.25:
-                    penwidth=2
-                if rel_unterschiede<0.125:
-                    penwidth=4
-                if rel_unterschiede<0.0625:
-                    penwidth=8
+            if pa==pb:
+                continue
+            partei_b=parteien[pb]
+            vergleich=partei_a.vergleich(partei_b)
+            penwidth=0
+            label=""
+            rel_unterschiede=vergleich*0.5/anzahl_thesen;
+            if rel_unterschiede<0.4: 
+                penwidth=1
+                label="%2.0f"%(vergleich*0.5/anzahl_thesen*100)+"%"
+            if rel_unterschiede<0.25:
+                penwidth=2
+            if rel_unterschiede<0.125:
+                penwidth=4
+            if rel_unterschiede<0.0625:
+                penwidth=8
 
-                G.add_edge(parteien[pa].kurz, parteien[pb].kurz,weight=0.5, len=vergleich, penwidth=penwidth, label=label)
+            G.add_edge(parteien[pa].kurz, parteien[pb].kurz,weight=0.5, len=vergleich*0.2, penwidth=penwidth, label=label)
 
     nx.nx_pydot.write_dot(G, sys.argv[2])
 
