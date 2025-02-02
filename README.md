@@ -8,7 +8,8 @@ Das hier ist _nicht_ von der [Bundeszentrale für politische Bildung](https://ww
   * Hole Dir die Rohdaten für die Wahl die Du verarbeiten möchtest. Du findest Sie im [Archiv](https://www.bpb.de/themen/wahl-o-mat/45484/archiv/) der [Bundeszentrale für politische Bildung](https://www.bpb.de/themen/wahl-o-mat/556865/datensaetze-des-wahl-o-mat/) Dort findest Du ZIP-Archive der entsprechenden Wahlen. (Die Bundestagswahl 2025 ist dort, Stand 2.2.2025 noch nicht zu finden)
   * Die ZIP-Archive enthalten ein Excel-Sheet, welches sich zum Beispiel leicht mit Libreoffice öffnen lässt
   * Wähle das Tabellenblatt mit der gewünschten Wahl und speichere die Datei als CSV-Datei
-  * Führe das Programm hier zum Beispiel mit `./wahl-o-mat-distanzen.py <CSV-Datei` aus. Es gibt Dir eine Tabelle der Meinungsverschiedenheit aus.
+  * Führe das Programm hier zum Beispiel mit `./wahl-o-mat-distanzen.py <CSV-Datei>` aus. Es gibt Dir eine Tabelle der Meinungsverschiedenheit aus.
+  * Verwende bei Bedarf den 2. Parameter um ein DOT-File für [neato](https://graphviz.org/docs/layouts/neato/) zu erstellen. Damit erhältst Du einen groben Graphen der Nähe zwischen Parteien.
 
 
 # Funktionsweise
