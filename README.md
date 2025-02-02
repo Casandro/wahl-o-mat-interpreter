@@ -20,21 +20,21 @@ Beim Vergleich zweier Parteien wird der Absolutwert der Differenz jeder These ü
 Ein Beispiel:
 
 | | Partei A | Partei B |
-|---|----|----|
-These 1 | Zustimmung | Ablehnung |
-These 2 | Ablehung | Zustimmung |
-These 3 | Ablehnung | neutral |
-These 4 | Zustimmung | neutral |
+|These 1 | Zustimmung | Ablehnung |
+|These 2 | Ablehung | Zustimmung |
+|These 3 | Ablehnung | neutral |
+|These 4 | Zustimmung | neutral |
 
 
 Das wird intern wie folgt gespeichert:
 
 
 | | Partei A | Partei B |
-These 1 | 2 | 0 |
-These 2 | 0 | 2 |
-These 3 | 0 | 1 |
-These 4 | 2 | 1 |
+|---|----|----|
+|These 1 | 2 | 0 |
+|These 2 | 0 | 2 |
+|These 3 | 0 | 1 |
+|These 4 | 2 | 1 |
 
 Somit ergeben sich die Absolutwerte der Differenzen zu 2, 2, 1 und 1. Die Summe der Meinungsunterschiede ist somit 6.
 
