@@ -20,6 +20,7 @@ Beim Vergleich zweier Parteien wird der Absolutwert der Differenz jeder These ü
 Ein Beispiel:
 
 | | Partei A | Partei B |
+|---|----|----|
 These 1 | Zustimmung | Ablehnung |
 These 2 | Ablehung | Zustimmung |
 These 3 | Ablehnung | neutral |
