@@ -110,17 +110,15 @@ if len(sys.argv)>2:
                 penwidth=0
                 label=""
                 rel_unterschiede=vergleich*0.5/anzahl_thesen;
-                if rel_unterschiede<0.66: # Parteien mit mehr als 33% Übereinstimmung bekommen eine Linie
+                if rel_unterschiede<0.5: # Parteien mit mehr als 50% Übereinstimmung bekommen eine Linie
                     penwidth=1
                     label=str(vergleich)
-                if rel_unterschiede<0.5:
-                    penwidth=2
                 if rel_unterschiede<0.25:
-                    penwidth=3
+                    penwidth=2
                 if rel_unterschiede<0.125:
                     penwidth=4
                 if rel_unterschiede<0.0625:
-                    penwidth=5
+                    penwidth=8
 
                 G.add_edge(parteien[pa].kurz, parteien[pb].kurz,weight=0.5, len=vergleich, penwidth=penwidth, label=label)
 
