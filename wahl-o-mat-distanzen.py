@@ -61,7 +61,7 @@ with open(sys.argv[1]) as csvfile:
 
 anzahl_thesen=len(thesen)
 
-print("Unterschiede zwischen Meinungen, je These 2 Punkte, also bei %s Thesen maximal %s Unterschiedspunkte" % (anzahl_thesen, anzahl_thesen*2))
+print("Unterschiede zwischen Meinungen in Prozent der bewerteten Thesen")
 print(" \033[1;32mgrün\033[0m sind die kleinsten Meinungsunterschiede innerhalb der Zeile")
 print(" \033[1;31mrot\033[0m sind die größten Meinungsunterschiede innerhalb der Zeile")
 # Tabelle mit allen Unterschieden ausg
@@ -93,7 +93,7 @@ for pa in parteien:
             print("\033[1;32m",end="")
         if vergleich==maximum: # Die kleinsten Unterschiede werden rot eingefärbt
             print("\033[1;31m", end="")
-        print("%4s " %(vergleich), end="")
+        print("%4.0f " %(vergleich*0.5/anzahl_thesen*100), end="")
         print("\033[0m", end="")
     print("")
 
