@@ -102,3 +102,8 @@ Mit einem 2. Parameter kann man eine dot-Datei für [neato](https://graphviz.org
 Eine typische Kommandozeile könnte zum Beispiel: `./wahl-o-mat-distanzen.py ../btw_2021.csv /tmp/wurst.dot GRÜN CDU AfD SPD FDP LINK && neato -Tpdf -Gepsilon=.001 -Gstart=rand  /tmp/wurst.dot >  /tmp/wurst.pdf && atril /tmp/wurst.pdf ` 
 
 ![Graph der Ablehnung](btw_2021.png)
+
+
+# Hilfsskript für Rohdaten vom Wahl-o-Mat
+
+`helper.sh` ist ein kleines Skript welches `ssconvert` aus dem `gnumeric` Paket verwendet um `CSV`-Daten heraus zu ziehen. Danach wird das Programm für jedes einzelne Blatt aufgerufen.
