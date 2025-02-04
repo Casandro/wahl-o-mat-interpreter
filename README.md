@@ -42,8 +42,8 @@ Somit ergeben sich die Absolutwerte der Differenzen zu 2, 2, 1 und 1. Die Summe 
 Sind zwei Parteien eher einer Meinung, so sind die Werte klein. Sind die Parteien eher unterschiedlicher Meinung, so sind die Werte hoch.
 
 
-# Beispiel Bundestagswahl 2021
-Hier ist als Beispiel die Ausgabe für die Bundestagswahl 2021
+# Beispiel
+Hier ist als Beispiel die Ausgabe einer bestehenden Wahl
 
 <pre>Unterschiede zwischen Meinungen, je These 2 Punkte, also bei 38 Thesen maximal 76 Unterschiedspunkte
  <span style="color:#8AE234"><b>grün</b></span> sind die kleinsten Meinungsunterschiede innerhalb der Zeile
